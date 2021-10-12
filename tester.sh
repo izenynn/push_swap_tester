@@ -25,7 +25,7 @@ BLU='\033[1;34m'
 # Others
 OP_FILE="output.txt"
 PS_PATH="$1"
-DIGITS='^[0-9]+$'
+DIGITS='^[+-]?[0-9]+$'
 
 ### FUNCTIONS
 # Invalid args
