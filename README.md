@@ -9,7 +9,7 @@ A tester for 42 push_swap
 ```sh
 ./tester.sh --help
 ```
-```sh
+```
 Usage: ./tester.sh [PUSH_SWAP PATH] [OPTION] [ARGUMENTS]...
 A tester for 42 push_swap project
 Example: ./tester.sh -r -10 10
