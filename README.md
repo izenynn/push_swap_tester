@@ -6,6 +6,14 @@ A tester for 42 push_swap
 
 ## How to use
 
+- Clone the repository
+
+```sh
+git clone https://github.com/izenynn/push_swap_tester.git
+```
+
+- Run tester.sh with `--help` flag to learn how to use it
+
 ```sh
 ./tester.sh --help
 ```
@@ -47,6 +55,9 @@ Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)
 Tester by: izenynn
 github: https://github.com/izenynn
 ```
+
+- ✨ Magic ✨
+
 ## Screenshots
 
 ### flag `-c`
