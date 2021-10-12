@@ -49,22 +49,29 @@ github: https://github.com/izenynn
 ```
 ## Screenshots
 
-### flag -c
+### flag `-c`
 
 ![screenshot c flag](screenshots/flag_c.png)
 
-### flag -co
+### flag `-co`
 
 ![screenshot co flag](screenshots/flag_co.png)
 
-### flag -r
+### flag `-r`
 
 ![screenshot r flag](screenshots/flag_r.png)
 
-### flag -ro
+### flag `-ro`
 
 ![screenshot ro flag](screenshots/flag_ro.png)
 
-### flag -rn
+### flag `-rn`
 
 ![screenshot rn flag](screenshots/flag_rn.png)
+
+### use checker_bonus `-b`
+
+![screenshot checker bonus](screenshot/chk_bns_1.png)
+
+![screenshot checker bonus](screenshot/chk_bns_2.png)
+
