@@ -51,19 +51,19 @@ github: https://github.com/izenynn
 
 ### flag -c
 
-![screenshot c flag](screenshot/flag_c.png)
+![screenshot c flag](screenshots/flag_c.png)
 
 ### flag -co
 
-![screenshot co flag](screenshot/flag_co.png)
+![screenshot co flag](screenshots/flag_co.png)
 
 ### flag -r
 
-![screenshot r flag](screenshot/flag_r.png)
+![screenshot r flag](screenshots/flag_r.png)
 
 ### flag -ro
 
-![screenshot ro flag](screenshot/flag_ro.png)
+![screenshot ro flag](screenshots/flag_ro.png)
 
 ### flag -rn
 
