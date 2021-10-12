@@ -71,7 +71,7 @@ github: https://github.com/izenynn
 
 ### use checker_bonus `-b`
 
-![screenshot checker bonus](screenshot/chk_bns_1.png)
+![screenshot checker bonus](screenshots/chk_bns_1.png)
 
-![screenshot checker bonus](screenshot/chk_bns_2.png)
+![screenshot checker bonus](screenshots/chk_bns_2.png)
 
