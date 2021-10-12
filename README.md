@@ -48,8 +48,8 @@ start range will be 0, so no random arguments will be generated.
 Example: ./tester.sh 10 5 (no numbers will be generated becouse end
 is smaller than start)
 
-Also note that if quantity is less than total range, then quantity will
-be equal to total range.
+Also note that if quantity is less than range, then quantity will
+be equal to the range.
 Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)
 
 Tester by: izenynn
