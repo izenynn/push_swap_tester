@@ -47,3 +47,24 @@ Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)
 Tester by: izenynn
 github: https://github.com/izenynn
 ```
+## Screenshots
+
+### flag -c
+
+![screenshot c flag](screenshot/flag_c.png)
+
+### flag -co
+
+![screenshot co flag](screenshot/flag_co.png)
+
+### flag -r
+
+![screenshot r flag](screenshot/flag_r.png)
+
+### flag -ro
+
+![screenshot ro flag](screenshot/flag_ro.png)
+
+### flag -rn
+
+![screenshot rn flag](screenshots/flag_rn.png)
