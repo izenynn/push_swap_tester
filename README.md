@@ -12,7 +12,7 @@ A tester for 42 push_swap
 git clone https://github.com/izenynn/push_swap_tester.git
 ```
 
-- Run tester.sh with `--help` flag to learn how to use it
+- Run `./tester.sh` with `--help` flag to learn how to use it
 
 ```sh
 ./tester.sh --help
