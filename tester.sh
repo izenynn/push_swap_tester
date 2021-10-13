@@ -24,6 +24,7 @@ BLU='\033[1;34m'
 
 # Others
 OP_FILE="output.txt"
+LOG_FILE="log.txt"
 PS_PATH="$1"
 DIGITS='^[+-]?[0-9]+$'
 
@@ -46,7 +47,7 @@ function check () {
 	CHK_MAC=`cat $OP_FILE | ./checkers/checker_mac $ARG 2> /dev/null`
 	COL_MAC="$GRN"
 	if [ -z $CHK_MAC ]; then
-		CHK_MAC="n/a"
+		CHK_MAC="N/A"
 		COL_MAC="$YEL"
 	elif [[ $CHK_MAC == "KO" ]]; then
 		COL_MAC="$RED"
@@ -56,7 +57,7 @@ function check () {
 	CHK_LINUX=`cat $OP_FILE | ./checkers/checker_linux $ARG 2> /dev/null`
 	COL_LINUX="$GRN"
 	if [ -z $CHK_LINUX ]; then
-		CHK_LINUX="n/a"
+		CHK_LINUX="N/A"
 		COL_LINUX="$YEL"
 	elif [[ $CHK_LINUX == "KO" ]]; then
 		COL_LINUX="$RED"
@@ -94,6 +95,43 @@ function check () {
 		printf "  ${DGRAY}MOVES:${NOCOL} %-6d\n" "$MOVES"
 	else
 		printf "${DGRAY}MOVES:${NOCOL} %s\n" "$MOVES"
+	fi
+
+	# Add to log file
+	if [[ $1 == "short" ]] || [[ $2 == "short" ]]; then
+		printf "########## " >> "$LOG_FILE"
+		if [[ $2 =~ $DIGITS ]]; then
+			printf "TEST %4d" "$2" >> "$LOG_FILE"
+		else
+			printf "TEST %4d" "$3" >> "$LOG_FILE"
+		fi
+		printf " ##########\n\n" >> "$LOG_FILE"
+		echo "ARGS:" >> "$LOG_FILE"
+		echo "$ARG" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
+		echo "OUTPUT:" >> "$LOG_FILE"
+		cat "$OP_FILE" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
+		printf "CHECKERS:\nmac: %3s, lnx: %3s" "$CHK_MAC" "$CHK_LINUX" >> "$LOG_FILE"
+		if [[ $1 == "bonus" ]]; then
+			printf ", bns: %3s" "$CHK_BONUS" >> "$LOG_FILE"
+		fi
+		printf "\nMOVES: %-6d\n" "$MOVES" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
+	else
+		echo "ARGS:" >> "$LOG_FILE"
+		echo "$ARG" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
+		echo "OUTPUT:" >> "$LOG_FILE"
+		cat "$OP_FILE" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
+		echo "checker_mac: $CHK_MAC" >> "$LOG_FILE"
+		echo "checker_linux: $CHK_LINUX" >> "$LOG_FILE"
+		if [[ $1 == "bonus" ]]; then
+			echo "checker_bonus: $CHK_BONUS" >> "$LOG_FILE"
+		fi
+		echo "MOVES: $MOVES" >> "$LOG_FILE"
+		echo "" >> "$LOG_FILE"
 	fi
 }
 
@@ -265,9 +303,9 @@ function flag_rn () {
 		fi
 		exec_ps
 		if [[ $4 == "-b" ]] || [[ $5 == "-b" ]]; then
-			check "bonus" "short"
+			check "bonus" "short" $i
 		else
-			check "short"
+			check "short" $i
 		fi
 	done
 	}
@@ -331,6 +369,7 @@ fi
 check_ps $1
 
 # Check flags
+echo "" > "$LOG_FILE"
 if [[ -z $2 ]]; then
 	invalid_args
 elif [[ $2 == "-c" ]]; then
@@ -346,6 +385,10 @@ elif [[ $2 == "-rn" ]]; then
 else
 	invalid_args
 fi
+
+# see log!
+echo ""
+echo -e "${BLU}See log for more information 'cat log.txt'${NOCOL}"
 
 # Delete garbage
 rm -rf "$OP_FILE" 2> /dev/null
