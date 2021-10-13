@@ -35,6 +35,7 @@ chmod +x ./checkers/*
 ```
 Usage: ./tester.sh [PUSH_SWAP PATH] [OPTION] [ARGUMENTS]...
 A tester for 42 push_swap project
+It saves output and more info in a generated file called 'log.txt'
 Example: ./tester.sh -r -10 10
 
 Options:
@@ -64,7 +65,7 @@ Example: ./tester.sh 10 5 (no numbers will be generated becouse end
 is smaller than start)
 
 Also note that if quantity is less than range, then quantity will
-be equal to the range.
+be equal to range.
 Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)
 
 NOTE: if checker is not working, make sure the checker file has the
@@ -107,5 +108,5 @@ github: https://github.com/izenynn
 
 ##
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)

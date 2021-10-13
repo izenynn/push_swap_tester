@@ -320,6 +320,7 @@ fi
 if [[ $1 == "--help" ]]; then
 	echo "Usage: ./tester.sh [PUSH_SWAP PATH] [OPTION] [ARGUMENTS]..."
 	echo "A tester for 42 push_swap project"
+	echo "It saves output and more info in a generated file called 'log.txt'"
 	echo "Example: ./tester.sh -r -10 10"
 	echo ""
 	echo "Options:"
