@@ -14,11 +14,24 @@ Works on Mac and Linux.
 git clone https://github.com/izenynn/push_swap_tester.git
 ```
 
+- Give `./tester.sh` execute permissions
+
+```sh
+chmod +x ./tester.sh
+```
+
+- Give checkers execute permissions
+
+```sh
+chmod +x ./checkers/*
+```
+
 - Run `./tester.sh` with `--help` flag to learn how to use it
 
 ```sh
 ./tester.sh --help
 ```
+
 ```
 Usage: ./tester.sh [PUSH_SWAP PATH] [OPTION] [ARGUMENTS]...
 A tester for 42 push_swap project
@@ -53,6 +66,10 @@ is smaller than start)
 Also note that if quantity is less than range, then quantity will
 be equal to the range.
 Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)
+
+NOTE: if checker is not working, make sure the checker file has the
+proper permissions.
+Example: chmod +x checkers/*
 
 Tester by: izenynn
 github: https://github.com/izenynn

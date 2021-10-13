@@ -38,8 +38,10 @@ function invalid_args () {
 
 # Checkers
 function check () {
-	# $1 == bonus ?
-	# $1 or $2 == short ?
+	# Give permissions
+	chmod +x ./checkers/checker_mac 2> /dev/null
+	chmod +x ./checkers/checker_linux 2> /dev/null
+
 	# Checker Mac
 	CHK_MAC=`cat $OP_FILE | ./checkers/checker_mac $ARG 2> /dev/null`
 	COL_MAC="$GRN"
@@ -311,6 +313,10 @@ if [[ $1 == "--help" ]]; then
 	echo "Also note that if quantity is less than range, then quantity will"
 	echo "be equal to range."
 	echo "Example: ./tester.sh 0 3 5 (quantity will be 3, not 5)"
+	echo ""
+	echo "NOTE: if checker is not working, make sure the checker file has the"
+	echo "proper permissions."
+	echo "Example: chmod +x checkers/*"
 	echo ""
 	echo "Tester by: izenynn"
 	echo "github: https://github.com/izenynn"
