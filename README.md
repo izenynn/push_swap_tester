@@ -2,7 +2,9 @@
 
 ## Info
 
-A tester for 42 push_swap
+A tester for 42 push_swap.
+
+Works on Mac and Linux.
 
 ## How to use
 
