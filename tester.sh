@@ -181,11 +181,6 @@ function exec_ps() {
 		echo "" >> "$OP_FILE"
 	fi
 	local output=`cat "$OP_FILE"`
-	if [[ $output == "Error" ]]; then
-		echo -e "${RED}ERROR:${NOCOL} push_swap returned \"Error\"${NOCOL}"
-		rm -rf "$OP_FILE" 2> /dev/null
-		exit 0
-	fi
 }
 
 ### FLAGS FUNCTIONS
@@ -204,7 +199,7 @@ function flag_c () {
 	if [[ -z $ARG ]]; then
 		invalid_args
 	fi
-	printf "${BLU}ARGS:${NOCOL}%s\n\n" "$ARG"
+	printf "${DGRAY}ARGS:${NOCOL}%s\n\n" "$ARG"
 	exec_ps
 	if [[ $bonus == "1" ]]; then
 		check "bonus"
@@ -228,7 +223,7 @@ function flag_co () {
 	if [[ -z $ARG ]]; then
 		invalid_args
 	fi
-	printf "${BLU}ARGS:${NOCOL}%s\n\n" "$ARG"
+	printf "${DGRAY}ARGS:${NOCOL}%s\n\n" "$ARG"
 	exec_ps
 	echo -e "${DGRAY}OUTPUT:${NOCOL}"
 	cat "$OP_FILE"
@@ -254,7 +249,7 @@ function flag_r () {
 	if [[ -z $ARG ]]; then
 		invalid_args
 	fi
-	printf "${BLU}ARGS:${NOCOL} %s\n\n" "$ARG"
+	printf "${DGRAY}ARGS:${NOCOL} %s\n\n" "$ARG"
 	exec_ps
 	if [[ $3 == "-b" ]] || [[ $4 == "-b" ]]; then
 		check "bonus"
@@ -277,7 +272,7 @@ function flag_ro () {
 	if [[ -z $ARG ]]; then
 		invalid_args
 	fi
-	printf "${BLU}ARGS:${NOCOL} %s\n\n" "$ARG"
+	printf "${DGRAY}ARGS:${NOCOL} %s\n\n" "$ARG"
 	exec_ps
 	echo -e "${DGRAY}OUTPUT:${NOCOL}"
 	cat "$OP_FILE"
