@@ -74,7 +74,7 @@ function check () {
 
 	# Checker bonus
 	if [[ $1 == "bonus" ]]; then
-		CHK_BONUS=`cat $OP_FILE | $PS_PATH/checker_bonus $ARG 2> /dev/null`
+		CHK_BONUS=`cat $OP_FILE | $PS_PATH/checker $ARG 2> /dev/null`
 		COL_BONUS="$GRN"
 		if [ -z $CHK_BONUS ]; then
 			CHK_BONUS="NO OUTPUT"
@@ -85,7 +85,7 @@ function check () {
 		if [[ $2 == "short" ]]; then
 			printf "  ${DGRAY}BNS: ${COL_BONUS}%3s${NOCOL}" "$CHK_BONUS"
 		else
-			printf "${DGRAY}checker_bonus:${NOCOL} ${COL_BONUS}%s${NOCOL}\n" "$CHK_BONUS"
+			printf "${DGRAY}checker (bonus):${NOCOL} ${COL_BONUS}%s${NOCOL}\n" "$CHK_BONUS"
 		fi
 	fi
 	
@@ -128,7 +128,7 @@ function check () {
 		echo "checker_mac: $CHK_MAC" >> "$LOG_FILE"
 		echo "checker_linux: $CHK_LINUX" >> "$LOG_FILE"
 		if [[ $1 == "bonus" ]]; then
-			echo "checker_bonus: $CHK_BONUS" >> "$LOG_FILE"
+			echo "checker (bonus): $CHK_BONUS" >> "$LOG_FILE"
 		fi
 		echo "MOVES: $MOVES" >> "$LOG_FILE"
 		echo "" >> "$LOG_FILE"
@@ -155,12 +155,13 @@ function check_ps () {
 
 function check_bonus () {
 	# $1: push_swap path
-	if [ ! -f "$1/checker_bonus" ]; then
-		echo -e "${YEL}WARNING:${NOCOL} \"$PS_PATH/checker_bonus\" does not exists, running make bonus...\n"
+	if [ ! -f "$1/checker" ]; then
+		echo -e "${YEL}WARNING:${NOCOL} \"$PS_PATH/checker\" does not exists, running make checker and make bonus...\n"
+		make checker -sC "$1"
 		make bonus -sC "$1"
 		echo ""
-		if [ ! -f "$1/checker_bonus" ]; then
-			echo -e "${RED}ERROR:${NOCOL} \"$PS_PATH/checker_bonus\" file does not exists after make bonus."
+		if [ ! -f "$1/checker" ]; then
+			echo -e "${RED}ERROR:${NOCOL} \"$PS_PATH/checker\" file does not exists after make bonus."
 			exit 1
 		fi
 	fi
@@ -340,7 +341,7 @@ if [[ $1 == "--help" ]]; then
 	echo "            you specified"
 	echo ""
 	echo "In addition, you can add the flag \"-b\" at the end of any"
-	echo "command to display also the checker_bonus output"
+	echo "command to display also the checker (bonus) output"
 	echo "Example: ./tester.sh -rn 100 0 5 -b"
 	echo ""
 	echo "Also note that in -r, -ro and -rn if range end is smaller than range"
