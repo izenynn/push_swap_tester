@@ -139,13 +139,17 @@ function check () {
 function check_ps () {
 	# $1: push_swap path
 	if [ ! -f "$1/push_swap" ]; then
-		echo -e "${YEL}WARNING:${NOCOL} \"$PS_PATH/push_swap\" does not exists, running make..."
-		make -sC "$1"
-		echo ""
+		echo -e "${YEL}WARNING:${NOCOL} \"$PS_PATH/push_swap\" does not exists, running make...${BLU}"
+		make -C "$1"
+		echo -e "${NOCOL}"
 		if [ ! -f "$1/push_swap" ]; then
 			echo -e "${RED}ERROR:${NOCOL} \"$PS_PATH/push_swap\" file does not exists after make."
 			exit 1
 		fi
+	else
+		echo -e "${BLU}Running make..."
+		make -C "$1"
+		echo -e "${NOCOL}"
 	fi
 }
 
@@ -333,7 +337,7 @@ if [[ $1 == "--help" ]]; then
 	echo "            generate a list of random numbers between range"
 	echo "            start and range end. If a quantity is specified"
 	echo "            it will choose that amount of numbers from the"
-	echo "            generated list (default is all the list"
+	echo "            generated list (default is all the list)"
 	echo "    -ro [RANGE START] [RANGE END] [QUANTITY]"
 	echo "            like -r but displays your push_swap output"
 	echo "    -rn [NUMBER OF TESTS] [RANGE START] [RANGE END] [QUANTITY]"

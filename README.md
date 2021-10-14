@@ -48,7 +48,7 @@ Options:
             generate a list of random numbers between range
             start and range end. If a quantity is specified
             it will choose that amount of numbers from the
-            generated list (default is all the list
+            generated list (default is all the list)
     -ro [RANGE START] [RANGE END] [QUANTITY]
             like -r but displays your push_swap output
     -rn [NUMBER OF TESTS] [RANGE START] [RANGE END] [QUANTITY]
