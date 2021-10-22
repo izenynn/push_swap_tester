@@ -297,7 +297,11 @@ function flag_rn () {
 	fi
 	for (( i=1; i<=$1; i++ )); do
 		printf "${BLU}TEST %4d:${NOCOL} " "$i"
-		ARG=$(get_args $2 $3 $4)
+		if [[ $4 == "-b" ]]; then
+			ARG=$(get_args $2 $3)
+		else
+			ARG=$(get_args $2 $3 $4)
+		fi
 		if [[ -z $ARG ]]; then
 			invalid_args
 		fi
