@@ -6,6 +6,8 @@ A tester for 42 push_swap.
 
 Works on Mac and Linux.
 
+For `zsh`, not tested in `bash`.
+
 ## How to use
 
 - Clone the repository
